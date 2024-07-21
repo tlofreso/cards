@@ -1,0 +1,10 @@
+{% extends 'cards/base.html' %}
+
+{% block content %}
+<h1>Address Details</h1>
+<p>{{ address.street }}</p>
+<p>{{ address.city }}, {{ address.state }} {{ address.zipcode }}</p>
+<p>{{ address.country }}</p>
+<a href="{% url 'address-update' address.pk %}" class="btn btn-primary">Edit</a>
+<a href="{% url 'address-delete' address.pk %}" class="btn btn-danger">Delete</a>
+{% endblock %}

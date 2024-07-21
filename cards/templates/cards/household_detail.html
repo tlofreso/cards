@@ -1,0 +1,16 @@
+{% extends 'cards/base.html' %}
+
+{% block content %}
+<h1>{{ household.name }}</h1>
+<p>Address: {{ household.address }}</p>
+<h2>Members</h2>
+<ul>
+    {% for member in household.members.all %}
+    <li>{{ member.first_name }} {{ member.last_name }}</li>
+    {% empty %}
+    <li>No members yet.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'household-update' household.pk %}" class="btn btn-primary">Edit</a>
+<a href="{% url 'household-delete' household.pk %}" class="btn btn-danger">Delete</a>
+{% endblock %}

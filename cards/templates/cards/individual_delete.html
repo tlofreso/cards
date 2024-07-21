@@ -1,0 +1,8 @@
+{% extends 'cards/base.html' %}
+
+{% block content %}
+<h1>{{ individual.first_name }} {{ individual.last_name }}</h1>
+<p>Household: {{ individual.household.name }}</p>
+<a href="{% url 'individual-update' individual.pk %}" class="btn btn-primary">Edit</a>
+<a href="{% url 'individual-delete' individual.pk %}" class="btn btn-danger">Delete</a>
+{% endblock %}

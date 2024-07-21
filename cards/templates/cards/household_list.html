@@ -1,0 +1,23 @@
+{% extends 'cards/base.html' %}
+
+{% block content %}
+<h1>Households</h1>
+
+{% if user.is_authenticated %}
+    {% if households %}
+        <ul class="list-group">
+            {% for household in households %}
+            <li class="list-group-item">
+                <a href="{% url 'household-detail' household.pk %}">{{ household.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You haven't created any households yet.</p>
+    {% endif %}
+    <a href="{% url 'household-create' %}" class="btn btn-primary mt-3">Add Household</a>
+{% else %}
+    <p>{{ message }}</p>
+    <a href="{% url 'login' %}" class="btn btn-primary">Log In</a>
+{% endif %}
+{% endblock %}

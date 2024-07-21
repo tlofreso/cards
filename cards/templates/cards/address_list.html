@@ -1,0 +1,15 @@
+{% extends 'cards/base.html' %}
+
+{% block content %}
+<h1>Addresses</h1>
+<ul class="list-group">
+    {% for address in addresses %}
+    <li class="list-group-item">
+        <a href="{% url 'address-detail' address.pk %}">{{ address }}</a>
+    </li>
+    {% empty %}
+    <li class="list-group-item">No addresses yet.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'address-create' %}" class="btn btn-primary mt-3">Add Address</a>
+{% endblock %}

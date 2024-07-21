@@ -1,0 +1,15 @@
+{% extends 'cards/base.html' %}
+
+{% block content %}
+<h1>Individuals</h1>
+<ul class="list-group">
+    {% for individual in individuals %}
+    <li class="list-group-item">
+        <a href="{% url 'individual-detail' individual.pk %}">{{ individual.first_name }} {{ individual.last_name }}</a>
+    </li>
+    {% empty %}
+    <li class="list-group-item">No individuals yet.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'individual-create' %}" class="btn btn-primary mt-3">Add Individual</a>
+{% endblock %}
